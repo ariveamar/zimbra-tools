@@ -1,0 +1,3 @@
+cat /opt/zimbra/log/mailbox.log | grep -i 'suspended,' > /tmp/logsuspend
+cat /tmp/logsuspend | awk '{if(/Access/) print $11 }' > /tmp/blacklistip
+cat /tmp/blacklistip | uniq -c
